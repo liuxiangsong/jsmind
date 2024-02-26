@@ -301,6 +301,11 @@ export default class jsMind {
         this._reset();
         this._show(mind);
     }
+    refresh_data(data_format, data) {
+        const mind = this.get_data(data_format);
+        mind.data = data;
+        this.show(mind);
+    }
     get_meta() {
         return {
             name: this.mind.name,
