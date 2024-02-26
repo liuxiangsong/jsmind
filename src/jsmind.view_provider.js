@@ -479,11 +479,21 @@ export class ViewProvider {
     _get_expander_text(node) {
         let style = !!this.opts.expander_style ? this.opts.expander_style.toLowerCase() : 'char';
         if (style === 'number') {
-            return node.children.length > 99 ? '...' : node.children.length;
+            return this._get_all_children_count(node);
+            // return node.children.length > 99 ? '...' : node.children.length;
         }
         if (style === 'char') {
             return node.expanded ? '-' : '+';
         }
+    }
+
+    _get_all_children_count(node){
+        let count = 0;
+        node.children?.forEach(n=>{
+            count += this._get_all_children_count(n);
+        })
+        count += node.children.length;
+        return count;
     }
 
     _default_node_render(ele, node) {

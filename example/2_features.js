@@ -6,6 +6,7 @@ function open_empty() {
         editable: true,
         view: {
             draggable: true,
+            expander_style: 'number',
         },
     };
     _jm = new jsMind(options);
@@ -52,7 +53,19 @@ function open_json() {
                             'background-color': '#eee',
                             'foreground-color': 'blue',
                         },
-                        { id: 'open2', topic: 'BSD License' },
+                        {
+                            id: 'open2',
+                            topic: 'BSD License',
+                            children: [
+                                {
+                                    'id': 'open2--1',
+                                    'topic': 'on GitHub2',
+                                    'background-color': '#eee',
+                                    'foreground-color': 'blue',
+                                },
+                                { id: 'open2--2', topic: 'BSD License2' },
+                            ],
+                        },
                     ],
                 },
                 {
