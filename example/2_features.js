@@ -15,6 +15,13 @@ function open_empty() {
         // },
     };
     _jm = new jsMind(options);
+    _jm.on_node_drag_end = (src_node, target_node, target_direct) => {
+        if (src_node.parent.id === target_node.id) {
+            console.log('not change :>> ');
+        } else {
+            console.log('change :>> ');
+        }
+    };
     _jm.show();
 }
 
