@@ -51,6 +51,7 @@ export default class jsMind {
             vspace: this.options.layout.vspace,
             pspace: this.options.layout.pspace,
             cousin_space: this.options.layout.cousin_space,
+            expander_offset_y: this.options.layout.expander_offset_y,
         };
         var opts_view = {
             container: this.options.container,

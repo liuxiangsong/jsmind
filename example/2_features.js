@@ -8,6 +8,11 @@ function open_empty() {
             draggable: true,
             expander_style: 'number',
         },
+        // layout: {
+        //     hspace: 60,
+        //     pspace: 33,
+        //     expander_offset_y: 10,
+        // },
     };
     _jm = new jsMind(options);
     _jm.show();

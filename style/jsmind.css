@@ -51,7 +51,7 @@ jmnode {
 }
 jmexpander {
     position: absolute;
-    width: 11px;
+    width: 30px;
     height: 11px;
     display: block;
     overflow: hidden;

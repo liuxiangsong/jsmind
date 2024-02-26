@@ -281,7 +281,7 @@ export class LayoutProvider {
         } else {
             ex_p.x = p.x;
         }
-        ex_p.y = p.y - Math.ceil(this.opts.pspace / 2);
+        ex_p.y = p.y - Math.ceil(this.opts.pspace / 2) + this.opts.expander_offset_y;
         return ex_p;
     }
     get_min_size() {

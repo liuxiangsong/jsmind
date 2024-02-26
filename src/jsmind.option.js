@@ -37,8 +37,9 @@ const default_options = {
     layout: {
         hspace: 30,
         vspace: 20,
-        pspace: 13,
+        pspace: 33,
         cousin_space: 0,
+        expander_offset_y: 10,
     },
     default_event_handle: {
         enable_mousedown_handle: true,
