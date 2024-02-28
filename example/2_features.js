@@ -15,6 +15,13 @@ function open_empty() {
         // },
     };
     _jm = new jsMind(options);
+    _jm.can_node_drag_func = (src_node, target_node, target_direct) => {
+        if (src_node.parent.id === 'root') {
+            alert('第一层节点禁止移动');
+            return false;
+        }
+        return true;
+    };
     _jm.on_node_drag_end = (src_node, target_node, target_direct) => {
         if (src_node.parent.id === target_node.id) {
             console.log('not change :>> ');
@@ -103,6 +110,15 @@ function open_json() {
         },
     };
     _jm.show(mind);
+}
+
+function enter_selected_node() {
+    const selected_node = _jm.get_selected_node();
+    if (!selected_node) {
+        alert('请先选择要进入的节点');
+    }
+    const data = selected_node;
+    _jm.refresh_data('node_tree', data);
 }
 
 function open_remote() {

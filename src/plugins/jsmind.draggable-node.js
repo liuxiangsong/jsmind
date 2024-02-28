@@ -278,8 +278,13 @@ class DraggableNode {
                 var src_node = this.active_node;
                 var target_node = this.target_node;
                 var target_direct = this.target_direct;
-                this.jm.on_node_drag_end?.call(null, src_node, target_node, target_direct);
-                this.move_node(src_node, target_node, target_direct);
+                if (
+                    !this.jm.can_node_drag_func ||
+                    this.jm.can_node_drag_func(src_node, target_node, target_direct)
+                ) {
+                    this.jm.on_node_drag_end?.call(null, src_node, target_node, target_direct);
+                    this.move_node(src_node, target_node, target_direct);
+                } 
             }
             this.hide_shadow();
         }
