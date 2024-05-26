@@ -139,6 +139,10 @@ export default class jsMind {
         } else {
             this.select_clear();
         }
+        // console.log('selectedNodeChange');
+        if (this.selectedNodeChange) {
+            this.selectedNodeChange(node_id);
+        }
     }
     click_handle(e) {
         if (!this.options.default_event_handle['enable_click_handle']) {
@@ -603,6 +607,20 @@ export default class jsMind {
                 }
                 if (!!fg_color) {
                     node.data['foreground-color'] = fg_color;
+                }
+                this.view.reset_node_custom_style(node);
+            }
+        } else {
+            logger.error('fail, this mind map is not editable');
+            return null;
+        }
+    }
+    set_node_text_decoration_line(node_id, text_decoration_line) {
+        if (this.get_editable()) {
+            var node = this.mind.get_node(node_id);
+            if (!!node) { 
+                if (!!text_decoration_line) {
+                    node.data['text-decoration-line'] = text_decoration_line;
                 }
                 this.view.reset_node_custom_style(node);
             }

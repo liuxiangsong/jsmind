@@ -535,6 +535,9 @@ export class ViewProvider {
         if ('font-style' in node_data) {
             node_element.style.fontStyle = node_data['font-style'];
         }
+        if ('text-decoration-line' in node_data) {
+            node_element.style.textDecorationLine = node_data['text-decoration-line'];
+        }
         if ('background-image' in node_data) {
             var backgroundImage = node_data['background-image'];
             if (backgroundImage.startsWith('data') && node_data['width'] && node_data['height']) {
