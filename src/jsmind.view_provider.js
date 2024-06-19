@@ -65,6 +65,7 @@ export class ViewProvider {
         });
         $.on(this.e_editor, 'blur', function (e) {
             v.edit_node_end();
+            v.jm.on_editor_blur && v.jm.on_editor_blur();
         });
 
         this.container.appendChild(this.e_panel);
